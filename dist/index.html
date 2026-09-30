@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Entity-centric, time-aware regulatory intelligence demo for CDSCO records." />
+  <title>CDSCO Regulatory Intelligence</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307131f'/%3E%3Cpath d='M16 19h32M20 19v26h24V19M26 27h12M26 34h12M26 41h8' fill='none' stroke='%234bd6c8' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='46' cy='44' r='7' fill='%23f5b850' stroke='%2307131f' stroke-width='3'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #07131f;
+      --ink-2: #0c1d2b;
+      --panel: #102534;
+      --panel-2: #142c3c;
+      --line: #294657;
+      --line-soft: rgba(119, 159, 178, .18);
+      --text: #edf6f7;
+      --muted: #9bb3bd;
+      --aqua: #4bd6c8;
+      --aqua-soft: rgba(75, 214, 200, .12);
+      --amber: #f5b850;
+      --amber-soft: rgba(245, 184, 80, .12);
+      --blue: #71a7ff;
+      --red: #ff857a;
+      --radius: 18px;
+      --shadow: 0 20px 50px rgba(0, 0, 0, .23);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--ink);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .25;
+      background-image:
+        linear-gradient(rgba(75, 214, 200, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75, 214, 200, .045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, #000, transparent 72%);
+      z-index: -1;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 3px solid rgba(75, 214, 200, .42);
+      outline-offset: 3px;
+    }
+
+    .shell { width: min(1480px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
+    .brand-mark {
+      width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px;
+      display: grid; place-items: center; background: var(--panel); color: var(--aqua);
+    }
+    .brand-mark svg { width: 22px; height: 22px; }
+    .brand-copy { display: grid; line-height: 1.15; }
+    .brand-copy strong { font-size: .98rem; letter-spacing: -.01em; }
+    .brand-copy span { color: var(--muted); font-size: .74rem; margin-top: 4px; letter-spacing: .04em; text-transform: uppercase; }
+    .demo-badge {
+      display: inline-flex; gap: 8px; align-items: center; color: var(--amber);
+      border: 1px solid rgba(245, 184, 80, .32); background: var(--amber-soft);
+      border-radius: 999px; padding: 8px 12px; font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .demo-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); }
+
+    .workspace { padding: 28px 0 44px; }
+    .intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: end; margin-bottom: 24px; }
+    h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: .98; letter-spacing: -.055em; max-width: 900px; }
+    .intro-copy p { color: var(--muted); max-width: 780px; margin: 18px 0 0; font-size: 1rem; }
+    .principle {
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 18px;
+      background: rgba(16, 37, 52, .72); box-shadow: var(--shadow);
+    }
+    .principle small { color: var(--aqua); display: block; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 7px; }
+    .principle p { margin: 0; color: #d6e5e8; font-size: .92rem; }
+
+    .metric-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 18px; }
+    .metric {
+      border: 1px solid var(--line-soft); background: rgba(12, 29, 43, .84); border-radius: 15px; padding: 14px 16px;
+    }
+    .metric strong { display: block; font-size: 1.45rem; letter-spacing: -.04em; }
+    .metric span { color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; }
+
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      margin-bottom: 18px; border-top: 1px solid var(--line-soft); padding-top: 18px;
+    }
+    .tabs { display: inline-flex; gap: 6px; background: var(--ink-2); border: 1px solid var(--line-soft); padding: 5px; border-radius: 12px; }
+    .tab {
+      border: 0; background: transparent; color: var(--muted); padding: 8px 14px; border-radius: 8px;
+      font-weight: 750; cursor: pointer; font-size: .9rem;
+    }
+    .tab.active { color: var(--text); background: var(--panel-2); box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+    .source-note { color: var(--muted); font-size: .8rem; text-align: right; }
+    .source-note strong { color: var(--amber); }
+
+    .explorer-grid { display: grid; grid-template-columns: minmax(360px, .82fr) minmax(520px, 1.18fr); gap: 16px; align-items: start; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(12, 29, 43, .92); box-shadow: var(--shadow); overflow: hidden; }
+    .panel-head { padding: 20px 20px 16px; border-bottom: 1px solid var(--line-soft); }
+    .eyebrow { color: var(--aqua); font-size: .74rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 800; }
+    .panel-head h2, .detail-title h2 { margin: 5px 0 0; font-size: 1.25rem; letter-spacing: -.025em; }
+    .search-wrap { position: relative; margin-top: 16px; }
+    .search-wrap svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--muted); width: 20px; }
+    #search {
+      width: 100%; border: 1px solid var(--line); border-radius: 12px; background: var(--ink); color: var(--text);
+      padding: 13px 14px 13px 45px; min-height: 50px; font-size: 1rem;
+    }
+    #search::placeholder { color: #728c98; }
+    .filter-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .filter {
+      border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted);
+      padding: 6px 10px; font-size: .78rem; font-weight: 700; cursor: pointer;
+    }
+    .filter.active { color: var(--ink); background: var(--aqua); border-color: var(--aqua); }
+    .result-meta { display: flex; justify-content: space-between; padding: 13px 20px 8px; color: var(--muted); font-size: .76rem; }
+    .result-list { display: grid; gap: 7px; padding: 0 10px 12px; max-height: 640px; overflow: auto; scrollbar-color: var(--line) transparent; }
+    .result-card {
+      width: 100%; text-align: left; border: 1px solid transparent; border-radius: 13px; background: transparent;
+      color: var(--text); padding: 14px; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 12px;
+    }
+    .result-card:hover { background: rgba(20, 44, 60, .62); }
+    .result-card.active { background: var(--panel-2); border-color: rgba(75, 214, 200, .38); }
+    .result-type { color: var(--aqua); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .result-card h3 { margin: 4px 0 5px; font-size: 1rem; letter-spacing: -.01em; }
+    .result-card p { color: var(--muted); margin: 0; font-size: .78rem; }
+    .count-pill { min-width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 11px; display: grid; place-items: center; font-weight: 800; color: var(--amber); }
+    .empty { padding: 32px 20px; text-align: center; color: var(--muted); display: none; }
+
+    .detail-panel { min-height: 720px; }
+    .detail-hero { padding: 24px; border-bottom: 1px solid var(--line-soft); position: relative; }
+    .detail-hero::after { content: ""; position: absolute; right: 0; top: 0; width: 7px; height: 100%; background: var(--aqua); }
+    .detail-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+    .confidence { text-align: right; min-width: 120px; }
+    .confidence strong { display: block; color: var(--aqua); font-size: 1.35rem; }
+    .confidence span { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+    .aliases { color: var(--muted); font-size: .84rem; margin: 10px 0 0; }
+    .warning {
+      margin-top: 18px; border: 1px solid rgba(245, 184, 80, .26); background: var(--amber-soft); color: #f3d69d;
+      padding: 11px 13px; border-radius: 10px; font-size: .8rem;
+    }
+    .detail-body { padding: 22px 24px 26px; }
+    .section-heading { display: flex; justify-content: space-between; gap: 14px; align-items: baseline; margin-bottom: 15px; }
+    .section-heading h3 { margin: 0; font-size: 1rem; }
+    .section-heading span { color: var(--muted); font-size: .75rem; }
+    .timeline { display: grid; gap: 0; }
+    .event { display: grid; grid-template-columns: 108px 24px 1fr; gap: 12px; position: relative; }
+    .event:not(:last-child) .rail::after { content: ""; position: absolute; top: 20px; bottom: -19px; left: 50%; width: 1px; background: var(--line); }
+    .event-date { color: var(--muted); font-size: .76rem; padding-top: 3px; text-align: right; }
+    .rail { position: relative; display: flex; justify-content: center; padding-top: 4px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--aqua); border: 3px solid var(--panel); box-shadow: 0 0 0 1px var(--aqua); z-index: 1; }
+    .event.revision .dot { background: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+    .event-card { margin-bottom: 18px; border: 1px solid var(--line-soft); border-radius: 13px; padding: 14px; background: rgba(16, 37, 52, .68); }
+    .event-top { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .event-tag { color: var(--aqua); background: var(--aqua-soft); border: 1px solid rgba(75, 214, 200, .22); padding: 4px 8px; border-radius: 999px; font-size: .7rem; font-weight: 800; letter-spacing: .05em; }
+    .event.revision .event-tag { color: var(--amber); background: var(--amber-soft); border-color: rgba(245, 184, 80, .25); }
+    .source-id { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .7rem; }
+    .event-card h4 { margin: 10px 0 6px; font-size: .96rem; }
+    .event-card p { margin: 0; color: var(--muted); font-size: .82rem; }
+    .field-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+    .field { background: rgba(7, 19, 31, .65); border-radius: 9px; padding: 9px; }
+    .field span { display: block; color: var(--muted); text-transform: uppercase; font-size: .62rem; letter-spacing: .06em; }
+    .field strong { font-size: .76rem; font-weight: 700; }
+    .provenance {
+      display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-top: 12px;
+      padding-top: 11px; border-top: 1px solid var(--line-soft);
+    }
+    .provenance span { color: var(--muted); font-size: .72rem; }
+    .source-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--aqua); font-size: .74rem; font-weight: 750; }
+
+    .analytics { display: none; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .chart-panel { padding: 22px; }
+    .chart-panel.wide { grid-column: 1 / -1; }
+    .chart-panel h2 { font-size: 1.1rem; margin: 0 0 4px; }
+    .chart-panel > p { color: var(--muted); margin: 0 0 24px; font-size: .82rem; }
+    .bars { display: grid; gap: 13px; }
+    .bar-row { display: grid; grid-template-columns: 110px 1fr 40px; align-items: center; gap: 12px; font-size: .78rem; }
+    .bar-track { height: 12px; border-radius: 999px; background: var(--ink); overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: inherit; background: var(--aqua); }
+    .bar-row:nth-child(2) .bar-fill { background: var(--blue); }
+    .bar-row:nth-child(3) .bar-fill { background: var(--amber); }
+    .bar-row:nth-child(4) .bar-fill { background: var(--red); }
+    .bar-row strong { text-align: right; }
+    .quality-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .quality-card { padding: 16px; border: 1px solid var(--line-soft); border-radius: 13px; background: var(--panel); }
+    .quality-card strong { display: block; font-size: 1.7rem; letter-spacing: -.04em; color: var(--aqua); }
+    .quality-card span { color: var(--muted); font-size: .75rem; }
+    .quality-card em { display: block; color: #d7e5e7; font-size: .7rem; font-style: normal; margin-top: 8px; }
+    .footnote { color: var(--muted); border-top: 1px solid var(--line-soft); margin-top: 26px; padding-top: 16px; font-size: .74rem; }
+
+    @media (max-width: 980px) {
+      .intro { grid-template-columns: 1fr; }
+      .principle { max-width: 680px; }
+      .explorer-grid { grid-template-columns: 1fr; }
+      .result-list { max-height: 360px; }
+      .analytics { grid-template-columns: 1fr; }
+      .chart-panel.wide { grid-column: auto; }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 24px, 1480px); }
+      .topbar { min-height: 64px; }
+      .brand-copy span { display: none; }
+      .demo-badge { padding: 6px 9px; font-size: .68rem; }
+      .workspace { padding-top: 20px; }
+      h1 { font-size: clamp(2rem, 12vw, 3.2rem); }
+      .metric-row { grid-template-columns: 1fr 1fr; }
+      .toolbar { align-items: flex-start; flex-direction: column; }
+      .source-note { text-align: left; }
+      .explorer-grid { display: block; }
+      .detail-panel { margin-top: 14px; min-height: auto; }
+      .detail-title { display: block; }
+      .confidence { text-align: left; margin-top: 12px; }
+      .event { grid-template-columns: 1fr; gap: 4px; }
+      .event-date { text-align: left; }
+      .rail { display: none; }
+      .field-grid { grid-template-columns: 1fr 1fr; }
+      .quality-grid { grid-template-columns: 1fr 1fr; }
+      .bar-row { grid-template-columns: 92px 1fr 30px; }
+      .panel-head, .detail-hero, .detail-body, .chart-panel { padding-left: 17px; padding-right: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12M7.5 4v16h9V4M10 9h4M10 13h4M10 17h2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="brand-copy"><strong>CDSCO Regulatory Intelligence</strong><span>Entity-centric evidence explorer</span></div>
+    </div>
+    <div class="demo-badge">Illustrative demo data</div>
+  </header>
+
+  <main class="shell workspace">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <h1 id="page-title">Follow the entity.<br />Verify the evidence.</h1>
+        <p>Search reconstructed histories across products, manufacturers and batches—while retaining the exact source context behind every regulator-published event.</p>
+      </div>
+      <aside class="principle">
+        <small>Interpretation principle</small>
+        <p>An alert applies to the cited sample or batch. This system organizes official records; it does not label an entire medicine or manufacturer as safe or unsafe.</p>
+      </aside>
+    </section>
+
+    <section class="metric-row" aria-label="Demo dataset summary">
+      <div class="metric"><strong>248</strong><span>Source records</span></div>
+      <div class="metric"><strong>173</strong><span>Canonical entities</span></div>
+      <div class="metric"><strong>31</strong><span>Resolved aliases</span></div>
+      <div class="metric"><strong>97.6%</strong><span>Provenance complete</span></div>
+    </section>
+
+    <div class="toolbar">
+      <div class="tabs" role="tablist" aria-label="Portal views">
+        <button class="tab active" id="explorer-tab" role="tab" aria-selected="true" aria-controls="explorer-view">Explorer</button>
+        <button class="tab" id="analytics-tab" role="tab" aria-selected="false" aria-controls="analytics-view">Analytics</button>
+      </div>
+      <div class="source-note"><strong>Demo scope:</strong> NSQ, State NSQ and revised alerts · sample records only</div>
+    </div>
+
+    <section class="explorer-grid" id="explorer-view" role="tabpanel" aria-labelledby="explorer-tab">
+      <section class="panel" aria-label="Entity search">
+        <div class="panel-head">
+          <div class="eyebrow">Global search</div>
+          <h2>Find an entity or record</h2>
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="search" type="search" aria-label="Search entities" placeholder="Drug, manufacturer, batch or source ID" autocomplete="off" />
+          </div>
+          <div class="filter-row" aria-label="Entity type filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="product">Products</button>
+            <button class="filter" data-filter="manufacturer">Manufacturers</button>
+            <button class="filter" data-filter="batch">Batches</button>
+          </div>
+        </div>
+        <div class="result-meta"><span id="result-count">6 entities</span><span>Sorted by relevance</span></div>
+        <div class="result-list" id="result-list"></div>
+        <div class="empty" id="empty-state"><strong>No matching entities</strong><br />Try a product, manufacturer, batch or source ID.</div>
+      </section>
+
+      <article class="panel detail-panel" id="detail-panel" aria-live="polite"></article>
+    </section>
+
+    <section class="analytics" id="analytics-view" role="tabpanel" aria-labelledby="analytics-tab" hidden>
+      <article class="panel chart-panel">
+        <h2>Events by type</h2>
+        <p>Distribution of sample records in the curated demo layer.</p>
+        <div class="bars">
+          <div class="bar-row"><span>NSQ</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><strong>142</strong></div>
+          <div class="bar-row"><span>State NSQ</span><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><strong>74</strong></div>
+          <div class="bar-row"><span>Revised alert</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><strong>21</strong></div>
+          <div class="bar-row"><span>Other notice</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><strong>11</strong></div>
+        </div>
+      </article>
+      <article class="panel chart-panel">
+        <h2>Resolution review queue</h2>
+        <p>Confidence bands help reviewers prioritize uncertain entity matches.</p>
+        <div class="bars">
+          <div class="bar-row"><span>Auto-linked</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><strong>88%</strong></div>
+          <div class="bar-row"><span>Review</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><strong>9%</strong></div>
+          <div class="bar-row"><span>Unresolved</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><strong>3%</strong></div>
+        </div>
+      </article>
+      <article class="panel chart-panel wide">
+        <h2>Pipeline quality</h2>
+        <p>Operational indicators for ingestion, extraction and evidence traceability.</p>
+        <div class="quality-grid">
+          <div class="quality-card"><strong>96.8%</strong><span>PDF parse success</span><em>240 of 248 documents</em></div>
+          <div class="quality-card"><strong>92.4%</strong><span>Field completeness</span><em>Core regulated fields</em></div>
+          <div class="quality-card"><strong>97.6%</strong><span>Provenance complete</span><em>242 traceable records</em></div>
+          <div class="quality-card"><strong>14</strong><span>Manual review items</span><em>Conservative merge policy</em></div>
+        </div>
+        <p class="footnote">Counts describe the illustrative dataset and pipeline health. They are not rankings of product or manufacturer safety.</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const entities = [
+      {
+        id: 'mfg-001', type: 'manufacturer', name: 'Meridian BioPharma Private Limited',
+        aliases: ['M/s Meridian BioPharma Pvt. Ltd.', 'Meridian Bio Pharma Pvt Ltd, Unit II'],
+        meta: 'Ahmedabad, Gujarat · 3 linked records', confidence: 96,
+        tags: ['meridian', 'bio pharma', 'unit ii', 'gujarat', 'CDSCO-NSQ-2025-041'],
+        events: [
+          { date: '18 Aug 2025', type: 'REVISED ALERT', title: 'Manufacturer address corrected', desc: 'A revised source record updates the manufacturing unit address while preserving the original batch reference.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Source-field correction', source: 'CDSCO-REV-2025-009', revision: true },
+          { date: '31 Jul 2025', type: 'NSQ', title: 'Sample listed in monthly NSQ alert', desc: 'The cited batch was recorded with a dissolution test observation in the sample alert.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Dissolution', source: 'CDSCO-NSQ-2025-041' },
+          { date: '28 Feb 2025', type: 'STATE NSQ', title: 'State testing record linked', desc: 'A separate batch mention was associated through normalized manufacturer and address evidence.', batch: 'MBP23192', product: 'Azithralex 250 mg tablets', reason: 'Assay', source: 'STATE-NSQ-2025-018' }
+        ]
+      },
+      {
+        id: 'drug-001', type: 'product', name: 'Cefuron 500 mg tablets',
+        aliases: ['Cefuron Tablets 500mg', 'Cefuron-500'], meta: 'Tablet · 2 linked records', confidence: 98,
+        tags: ['cefuron', '500mg', 'tablet', 'MBP24071'],
+        events: [
+          { date: '18 Aug 2025', type: 'REVISED ALERT', title: 'Source record revised', desc: 'The manufacturer location in the earlier record was corrected; product and batch fields remained unchanged.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Source-field correction', source: 'CDSCO-REV-2025-009', revision: true },
+          { date: '31 Jul 2025', type: 'NSQ', title: 'Sample listed in monthly NSQ alert', desc: 'This batch was cited in a sample record with a dissolution test observation.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Dissolution', source: 'CDSCO-NSQ-2025-041' }
+        ]
+      },
+      {
+        id: 'batch-001', type: 'batch', name: 'MBP24071', aliases: ['MBP-24071'],
+        meta: 'Cefuron 500 mg tablets · 2 linked records', confidence: 100, tags: ['cefuron', 'meridian', 'CDSCO-REV-2025-009'],
+        events: [
+          { date: '18 Aug 2025', type: 'REVISED ALERT', title: 'Record revised after publication', desc: 'A later alert corrected the manufacturer address and explicitly referenced the earlier publication.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Source-field correction', source: 'CDSCO-REV-2025-009', revision: true },
+          { date: '31 Jul 2025', type: 'NSQ', title: 'Batch listed in monthly NSQ alert', desc: 'The cited sample record reported a dissolution test observation for this batch.', batch: 'MBP24071', product: 'Cefuron 500 mg tablets', reason: 'Dissolution', source: 'CDSCO-NSQ-2025-041' }
+        ]
+      },
+      {
+        id: 'mfg-002', type: 'manufacturer', name: 'Northstar Therapeutics Limited',
+        aliases: ['North Star Therapeutics Ltd.', 'M/s Northstar Therapeutics'], meta: 'Baddi, Himachal Pradesh · 2 linked records', confidence: 91,
+        tags: ['northstar', 'north star', 'baddi', 'himachal'],
+        events: [
+          { date: '30 Jun 2025', type: 'NSQ', title: 'Sample listed in monthly NSQ alert', desc: 'The cited batch was recorded with an assay observation.', batch: 'NST25014', product: 'Pantorise 40 mg tablets', reason: 'Assay', source: 'CDSCO-NSQ-2025-036' },
+          { date: '30 Nov 2024', type: 'STATE NSQ', title: 'State alert linked to canonical entity', desc: 'The manufacturer alias was matched using normalized name and location signals.', batch: 'NST24083', product: 'Calmofen suspension', reason: 'pH', source: 'STATE-NSQ-2024-084' }
+        ]
+      },
+      {
+        id: 'drug-002', type: 'product', name: 'Pantorise 40 mg tablets', aliases: ['Pantorise-40', 'Pantorise tablets 40mg'],
+        meta: 'Tablet · 1 linked record', confidence: 97, tags: ['pantorise', 'NST25014', 'northstar'],
+        events: [{ date: '30 Jun 2025', type: 'NSQ', title: 'Sample listed in monthly NSQ alert', desc: 'The cited sample record reported an assay observation for the identified batch.', batch: 'NST25014', product: 'Pantorise 40 mg tablets', reason: 'Assay', source: 'CDSCO-NSQ-2025-036' }]
+      },
+      {
+        id: 'batch-002', type: 'batch', name: 'NST25014', aliases: [], meta: 'Pantorise 40 mg tablets · 1 linked record', confidence: 100,
+        tags: ['pantorise', 'northstar', 'CDSCO-NSQ-2025-036'],
+        events: [{ date: '30 Jun 2025', type: 'NSQ', title: 'Batch listed in monthly NSQ alert', desc: 'The cited sample record reported an assay observation for this batch.', batch: 'NST25014', product: 'Pantorise 40 mg tablets', reason: 'Assay', source: 'CDSCO-NSQ-2025-036' }]
+      }
+    ];
+
+    const state = { query: '', filter: 'all', selected: entities[0].id };
+    const resultList = document.querySelector('#result-list');
+    const detailPanel = document.querySelector('#detail-panel');
+    const emptyState = document.querySelector('#empty-state');
+    const resultCount = document.querySelector('#result-count');
+
+    function iconFor(type) {
+      return type === 'manufacturer' ? 'Manufacturer' : type === 'product' ? 'Product' : 'Batch';
+    }
+
+    function filteredEntities() {
+      const q = state.query.trim().toLowerCase();
+      return entities.filter(entity => {
+        const typeMatch = state.filter === 'all' || entity.type === state.filter;
+        const haystack = [entity.name, ...entity.aliases, ...entity.tags, entity.meta].join(' ').toLowerCase();
+        return typeMatch && (!q || haystack.includes(q));
+      });
+    }
+
+    function renderResults() {
+      const list = filteredEntities();
+      resultCount.textContent = `${list.length} ${list.length === 1 ? 'entity' : 'entities'}`;
+      resultList.innerHTML = list.map(entity => `
+        <button class="result-card ${entity.id === state.selected ? 'active' : ''}" data-id="${entity.id}" aria-pressed="${entity.id === state.selected}">
+          <span><span class="result-type">${iconFor(entity.type)}</span><h3>${entity.name}</h3><p>${entity.meta}</p></span>
+          <span class="count-pill" aria-label="${entity.events.length} linked records">${entity.events.length}</span>
+        </button>`).join('');
+      emptyState.style.display = list.length ? 'none' : 'block';
+      if (list.length && !list.some(item => item.id === state.selected)) {
+        state.selected = list[0].id;
+        renderDetail();
+      }
+      resultList.querySelectorAll('.result-card').forEach(button => button.addEventListener('click', () => {
+        state.selected = button.dataset.id;
+        renderResults();
+        renderDetail();
+        if (window.innerWidth < 980) detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }));
+    }
+
+    function renderDetail() {
+      const entity = entities.find(item => item.id === state.selected) || entities[0];
+      detailPanel.innerHTML = `
+        <div class="detail-hero">
+          <div class="detail-title">
+            <div><div class="eyebrow">Canonical ${iconFor(entity.type)}</div><h2>${entity.name}</h2><p class="aliases">${entity.aliases.length ? `Known aliases: ${entity.aliases.join(' · ')}` : 'No alternate source mentions in the demo dataset.'}</p></div>
+            <div class="confidence"><strong>${entity.confidence}%</strong><span>${entity.type === 'batch' ? 'Exact normalized match' : 'Resolution confidence'}</span></div>
+          </div>
+          <div class="warning">Record-level interpretation only. Linked events describe the cited samples or batches and should be read with their original source context.</div>
+        </div>
+        <div class="detail-body">
+          <div class="section-heading"><h3>Regulatory history</h3><span>${entity.events.length} linked ${entity.events.length === 1 ? 'event' : 'events'} · newest first</span></div>
+          <div class="timeline">
+            ${entity.events.map(event => `
+              <div class="event ${event.revision ? 'revision' : ''}">
+                <div class="event-date">${event.date}</div><div class="rail"><span class="dot"></span></div>
+                <div class="event-card">
+                  <div class="event-top"><span class="event-tag">${event.type}</span><span class="source-id">${event.source}</span></div>
+                  <h4>${event.title}</h4><p>${event.desc}</p>
+                  <div class="field-grid">
+                    <div class="field"><span>Product</span><strong>${event.product}</strong></div>
+                    <div class="field"><span>Batch</span><strong>${event.batch}</strong></div>
+                    <div class="field"><span>Recorded reason</span><strong>${event.reason}</strong></div>
+                  </div>
+                  <div class="provenance"><span>Source record · page 2, row 14 · retrieved 02 Sep 2025</span><a class="source-link" href="https://cdsco.gov.in/" target="_blank" rel="noreferrer">Open CDSCO portal</a></div>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>`;
+    }
+
+    document.querySelector('#search').addEventListener('input', event => { state.query = event.target.value; renderResults(); });
+    document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
+      state.filter = button.dataset.filter;
+      document.querySelectorAll('.filter').forEach(item => item.classList.toggle('active', item === button));
+      renderResults();
+    }));
+
+    function showView(view) {
+      const explorer = view === 'explorer';
+      document.querySelector('#explorer-view').hidden = !explorer;
+      document.querySelector('#explorer-view').style.display = explorer ? 'grid' : 'none';
+      document.querySelector('#analytics-view').hidden = explorer;
+      document.querySelector('#analytics-view').style.display = explorer ? 'none' : 'grid';
+      document.querySelector('#explorer-tab').classList.toggle('active', explorer);
+      document.querySelector('#analytics-tab').classList.toggle('active', !explorer);
+      document.querySelector('#explorer-tab').setAttribute('aria-selected', explorer);
+      document.querySelector('#analytics-tab').setAttribute('aria-selected', !explorer);
+    }
+    document.querySelector('#explorer-tab').addEventListener('click', () => showView('explorer'));
+    document.querySelector('#analytics-tab').addEventListener('click', () => showView('analytics'));
+
+    renderResults();
+    renderDetail();
+  </script>
+</body>
+</html>
