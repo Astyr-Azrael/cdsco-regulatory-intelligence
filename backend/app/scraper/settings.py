@@ -1,0 +1,4 @@
+BOT_NAME = "cdsco_regulatory_intelligence"
+ROBOTSTXT_OBEY = True
+DOWNLOAD_DELAY = 2.0
+CONCURRENT_REQUESTS_PER_DOMAIN = 1
