@@ -4,6 +4,7 @@ import hashlib
 import json
 import sqlite3
 import subprocess
+from contextlib import closing
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile,ZIP_DEFLATED
@@ -30,9 +31,11 @@ def main():
     manifest={"release":"2026-10-19","git_commit":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),
               "scope":"Frozen local academic demo; no virtual environments, dependencies, secrets or unrelated documents.",
               "files":{}}
-    with TemporaryDirectory(dir=ROOT/".pytest-runs") as temporary:
+    scratch=ROOT/".pytest-runs"
+    scratch.mkdir(exist_ok=True)
+    with TemporaryDirectory(dir=scratch) as temporary:
         backup=Path(temporary)/"cdsco_demo.db"
-        with sqlite3.connect(ROOT/"data/cdsco_demo.db") as source,sqlite3.connect(backup) as target:
+        with closing(sqlite3.connect(ROOT/"data/cdsco_demo.db")) as source,closing(sqlite3.connect(backup)) as target:
             source.backup(target)
         with ZipFile(output,"w",ZIP_DEFLATED) as bundle:
             for path in sorted(paths):
