@@ -1,6 +1,6 @@
 services:
   database:
-    image: pgvector/pgvector:pg16
+    image: postgres:16-alpine
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-cdsco}
       POSTGRES_USER: ${POSTGRES_USER:-cdsco}
@@ -9,16 +9,34 @@ services:
       - "5432:5432"
     volumes:
       - cdsco_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-cdsco} -d $${POSTGRES_DB:-cdsco}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   api:
     build: .
-    command: uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
     environment:
-      DATABASE_URL: postgresql://cdsco:cdsco-local@database:5432/cdsco
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-cdsco}:${POSTGRES_PASSWORD:-cdsco-local}@database:5432/${POSTGRES_DB:-cdsco}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080}
     ports:
       - "8000:8000"
     depends_on:
-      - database
+      database:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: /api
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
 
 volumes:
   cdsco_postgres:

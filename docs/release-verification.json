@@ -1,0 +1,1432 @@
+{
+  "release_date": "2026-10-19",
+  "stats": {
+    "records": 599,
+    "sources": 9,
+    "canonical_manufacturers": 399,
+    "canonical_drugs": 505,
+    "manufacturer_mentions_linked": 587,
+    "drug_mentions_linked": 599,
+    "unreviewed_candidates": 348,
+    "primary_review_decisions": 17
+  },
+  "corpus": [
+    {
+      "id": 1,
+      "title": "List of Drugs, Medical Devices, Vaccine and Cosmetics declared as Spurious for the Month of May-2025",
+      "sha256": "8b0877f57cee6fd2e9ea7174be7124250dd565daaccb03d6116fc9c4d7aea15b",
+      "local_raw_path": "data/raw/pdf/2025-06-20_list-of-drugs-medical-devices-vaccine-and-cosmetics-declared-as-spurious-for-the_8b0877f57cee.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/md%20Vaccine%20and%20Cosmetics%20declared%20as%20Spurious%20for%20the%20Month%20of%20May-2025.pdf",
+      "date": "2025-06-20",
+      "rows": 2
+    },
+    {
+      "id": 2,
+      "title": "CDSCO NSQ ALERT FOR THE MONTH OF June 2025",
+      "sha256": "e4d55f085dcfb29bb808c55ddd89a374c1f256c4a620af95a2c50144ce410509",
+      "local_raw_path": "data/raw/pdf/2025-07-18_cdsco-nsq-alert-for-the-month-of-june-2025_e4d55f085dcf.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/CDSCO%20NSQ%20june25.pdf",
+      "date": "2025-07-18",
+      "rows": 55
+    },
+    {
+      "id": 3,
+      "title": "List of spurious Drugs for the month of June-2025",
+      "sha256": "7ddd0c43d13b56f76ed1a4097c992a963e71f45430c52f25429d389c28c85e0b",
+      "local_raw_path": "data/raw/pdf/2025-07-18_list-of-spurious-drugs-for-the-month-of-june-2025_7ddd0c43d13b.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/List%20of%20spurious%20Drugs%20June-2025.pdf",
+      "date": "2025-07-18",
+      "rows": 4
+    },
+    {
+      "id": 4,
+      "title": "Revise list drug alert May-2025",
+      "sha256": "0ba4117374cfb2bb778fdc80191c2c352dcc3eb755734adff3437de232d60ff0",
+      "local_raw_path": "data/raw/pdf/2025-07-18_revise-list-drug-alert-may-2025_0ba4117374cf.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/Revisealert%20May-2025.pdf",
+      "date": "2025-07-18",
+      "rows": 1
+    },
+    {
+      "id": 5,
+      "title": "STATE NSQ ALERT FOR THE MONTH OF June 2025",
+      "sha256": "43de100540526f71bd7555afeecb84ffc64c308e1a564d37c91e0446c2b307c3",
+      "local_raw_path": "data/raw/pdf/2025-07-18_state-nsq-alert-for-the-month-of-june-2025_43de10054052.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/STATE%20NSQ%20%20June%20-2025.pdf",
+      "date": "2025-07-18",
+      "rows": 130
+    },
+    {
+      "id": 6,
+      "title": "CDSCO Public NSQ Portal — AUG-2026",
+      "sha256": "944a1fdd1c59737484c67dd4af12669ba302768b8769c0c48fefee767fd07188",
+      "local_raw_path": "data\\raw\\json\\20261002T071338Z_current_nsq_944a1fdd1c59.json",
+      "source_system": "CDSCO_CURRENT_NSQ_PORTAL",
+      "official_url": "https://cdscoonline.gov.in/CDSCO/viewPublicNSQDrug",
+      "date": "2026-08-01",
+      "rows": 220
+    },
+    {
+      "id": 7,
+      "title": "List of Drugs Medical Devices Vaccine and Cosmetics declared as Spurious for the Month of April-2025",
+      "sha256": "593446c0d2142fedd7977696b7a9c38db92ffb4edc986f17ad0af1250220b36a",
+      "local_raw_path": "data/raw/pdf/2025-05-20_list-of-drugs-medical-devices-vaccine-and-cosmetics-declared-as-spurious-for-the_593446c0d214.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/List%20of%20mdapril25.pdf",
+      "date": "2025-05-20",
+      "rows": 1
+    },
+    {
+      "id": 8,
+      "title": "NSQ ALERT FOR THE MONTH OF MAY-2025",
+      "sha256": "ea2b9aecce6dcd1073c83dcaa661b87265c648e1096036b9e53f12cb6f727b2a",
+      "local_raw_path": "data/raw/pdf/2025-06-20_nsq-alert-for-the-month-of-may-2025_ea2b9aecce6d.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/NSQ%20ALERT%20MAY-2025.pdf",
+      "date": "2025-06-20",
+      "rows": 58
+    },
+    {
+      "id": 9,
+      "title": "STATE NSQ ALERT FOR THE MONTH OF MAY-2025",
+      "sha256": "86f85691de1bcac94c6f2d88e570782f32419314f9ee80c0ff812ca353cc0a7d",
+      "local_raw_path": "data/raw/pdf/2025-06-20_state-nsq-alert-for-the-month-of-may-2025_86f85691de1b.pdf",
+      "source_system": "CDSCO_LEGACY_PDF",
+      "official_url": "https://www.cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadAlertsFiles/STATE%20NSQ%20MAY-2025.pdf",
+      "date": "2025-06-20",
+      "rows": 128
+    }
+  ],
+  "checks": {
+    "raw_hashes_match": 9,
+    "chronological_histories": 904,
+    "batch_collision_contexts": 5,
+    "legacy_extraction_reproduced": 379
+  },
+  "unseen_extraction": {
+    "labelled_rows": 11,
+    "predicted_rows": 379,
+    "matched_rows": 11,
+    "missing_rows": [],
+    "metrics_by_field": {
+      "drug_name": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 0.5454545454545454,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 11,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "batch_number": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 11,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "manufacturer": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 0.5454545454545454,
+        "normalized_match_accuracy": 0.8181818181818182,
+        "precision": 0.8181818181818182,
+        "recall": 0.8181818181818182,
+        "f1": 0.8181818181818182,
+        "true_positive": 9,
+        "false_positive": 2,
+        "false_negative": 2,
+        "missing_field_rate": 0.0
+      },
+      "manufacturing_date": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 11,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "expiry_date": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 11,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "failure_reason": {
+        "evaluated_rows": 11,
+        "labelled_values": 11,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 11,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "testing_laboratory": {
+        "evaluated_rows": 11,
+        "labelled_values": 10,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 10,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      },
+      "sample_authority": {
+        "evaluated_rows": 11,
+        "labelled_values": 1,
+        "exact_match_accuracy": 1.0,
+        "normalized_match_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 1,
+        "false_positive": 0,
+        "false_negative": 0,
+        "missing_field_rate": 0.0
+      }
+    },
+    "metrics_by_category": {
+      "NSQ": {
+        "drug_name": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 0.8,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "batch_number": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "manufacturer": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 0.8,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "manufacturing_date": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "expiry_date": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "failure_reason": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "testing_laboratory": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "sample_authority": {
+          "evaluated_rows": 5,
+          "labelled_values": 0,
+          "exact_match_accuracy": null,
+          "normalized_match_accuracy": null,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": null
+        }
+      },
+      "STATE_NSQ": {
+        "drug_name": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 0.4,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "batch_number": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "manufacturer": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 0.2,
+          "normalized_match_accuracy": 0.6,
+          "precision": 0.6,
+          "recall": 0.6,
+          "f1": 0.6,
+          "true_positive": 3,
+          "false_positive": 2,
+          "false_negative": 2,
+          "missing_field_rate": 0.0
+        },
+        "manufacturing_date": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "expiry_date": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "failure_reason": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "testing_laboratory": {
+          "evaluated_rows": 5,
+          "labelled_values": 5,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 5,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "sample_authority": {
+          "evaluated_rows": 5,
+          "labelled_values": 0,
+          "exact_match_accuracy": null,
+          "normalized_match_accuracy": null,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": null
+        }
+      },
+      "SPURIOUS": {
+        "drug_name": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 0.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "batch_number": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "manufacturer": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "manufacturing_date": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "expiry_date": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "failure_reason": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        },
+        "testing_laboratory": {
+          "evaluated_rows": 1,
+          "labelled_values": 0,
+          "exact_match_accuracy": null,
+          "normalized_match_accuracy": null,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": null
+        },
+        "sample_authority": {
+          "evaluated_rows": 1,
+          "labelled_values": 1,
+          "exact_match_accuracy": 1.0,
+          "normalized_match_accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "missing_field_rate": 0.0
+        }
+      }
+    }
+  },
+  "entity_evaluation": {
+    "annotation_scope": "Primary assistant source-text review; no independent human sign-off. Candidate-enriched sample, not a random corpus estimate.",
+    "review_boundary": "Applied decisions are regression only. Held-out subset was not applied as merge decisions. No threshold tuning after this fixture.",
+    "labels": 40,
+    "by_entity_type": {
+      "MANUFACTURER": {
+        "candidate_positive_coverage": 1.0,
+        "candidate_positive_count": 10,
+        "methods": {
+          "normalized_equality": {
+            "all_pairs": {
+              "pairs": 20,
+              "tp": 0,
+              "fp": 0,
+              "fn": 10,
+              "tn": 10,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "held_out": {
+              "pairs": 11,
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 8,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-01",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-02",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-03",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-04",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-05",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-06",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-07",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-08",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-09",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-10",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-11",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-12",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-13",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-14",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-15",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-16",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-17",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-18",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-19",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-20",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          },
+          "rapidfuzz_proposal": {
+            "all_pairs": {
+              "pairs": 20,
+              "tp": 9,
+              "fp": 0,
+              "fn": 1,
+              "tn": 10,
+              "precision": 1.0,
+              "recall": 0.9,
+              "f1": 0.9473684210526315
+            },
+            "held_out": {
+              "pairs": 11,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "tn": 8,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-01",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-02",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-03",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-04",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-05",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-06",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-07",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-08",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-09",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-10",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-11",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-12",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-13",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-14",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-15",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-16",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-17",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-18",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-19",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-20",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          },
+          "deployed_clusters": {
+            "all_pairs": {
+              "pairs": 20,
+              "tp": 7,
+              "fp": 0,
+              "fn": 3,
+              "tn": 10,
+              "precision": 1.0,
+              "recall": 0.7,
+              "f1": 0.8235294117647058
+            },
+            "held_out": {
+              "pairs": 11,
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "tn": 8,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-01",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-02",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-03",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-04",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-05",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-06",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-07",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-08",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-09",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-10",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-11",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-12",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-13",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-14",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-15",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-16",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-17",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-18",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-19",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-20",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          }
+        }
+      },
+      "DRUG": {
+        "candidate_positive_coverage": 1.0,
+        "candidate_positive_count": 10,
+        "methods": {
+          "normalized_equality": {
+            "all_pairs": {
+              "pairs": 17,
+              "tp": 0,
+              "fp": 0,
+              "fn": 10,
+              "tn": 7,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "held_out": {
+              "pairs": 9,
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 3,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-21",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-22",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-23",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-24",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-25",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-26",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-27",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-28",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-29",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-30",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-31",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-32",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-33",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-34",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-35",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-36",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-37",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-38",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-39",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-40",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          },
+          "rapidfuzz_proposal": {
+            "all_pairs": {
+              "pairs": 17,
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "tn": 7,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "held_out": {
+              "pairs": 9,
+              "tp": 1,
+              "fp": 0,
+              "fn": 5,
+              "tn": 3,
+              "precision": 1.0,
+              "recall": 0.16666666666666666,
+              "f1": 0.2857142857142857
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-21",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-22",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-23",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-24",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-25",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-26",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-27",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-28",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-29",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-30",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-31",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-32",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-33",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-34",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-35",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-36",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-37",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-38",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-39",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-40",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          },
+          "deployed_clusters": {
+            "all_pairs": {
+              "pairs": 17,
+              "tp": 4,
+              "fp": 0,
+              "fn": 6,
+              "tn": 7,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714285714285714
+            },
+            "held_out": {
+              "pairs": 9,
+              "tp": 0,
+              "fp": 0,
+              "fn": 6,
+              "tn": 3,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "outcomes": [
+              {
+                "pair_id": "corpus-21",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-22",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-23",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-24",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-25",
+                "label": "MATCH",
+                "predicted": true,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-26",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-27",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-28",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-29",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-30",
+                "label": "MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-31",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-32",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-33",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-34",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-35",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "APPLIED_REVIEW_REGRESSION"
+              },
+              {
+                "pair_id": "corpus-36",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-37",
+                "label": "NO_MATCH",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-38",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-39",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              },
+              {
+                "pair_id": "corpus-40",
+                "label": "AMBIGUOUS",
+                "predicted": false,
+                "usage": "HELD_OUT_OF_REVIEW_APPLICATION"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Primary assistant annotations only; independent human review pending",
+    "Small candidate-enriched entity benchmark",
+    "PostgreSQL and Docker execution not tested",
+    "No public HTTPS deployment"
+  ]
+}

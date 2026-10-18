@@ -1,6 +1,7 @@
 fastapi>=0.115,<1
 uvicorn[standard]>=0.34,<1
 sqlalchemy>=2.0,<3
+alembic>=1.14,<2
 psycopg[binary]>=3.2,<4
 scrapy>=2.12,<3
 requests>=2.32,<3
@@ -10,5 +11,6 @@ pandas>=2.2,<3
 numpy>=2.0,<3
 spacy>=3.8,<4
 rapidfuzz>=3.12,<4
-sentence-transformers>=3.4,<4
 scikit-learn>=1.6,<2
+pytest>=8.3,<9
+httpx>=0.28,<1

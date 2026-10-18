@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Timeline } from '../components/Timeline.jsx'
-import { records } from '../data/records.js'
+import { DataState } from '../components/DataState.jsx'
+import { api } from '../api.js'
+import { useRemote } from '../hooks/useRemote.js'
 
 export function TimelinePage({ navigate }) {
-  const [entity, setEntity] = useState('All indexed entities')
-  const filtered = entity === 'All indexed entities' ? records : records.filter((r) => r.drug.name === entity || r.manufacturer.name === entity)
+  const state = useRemote('timeline', async () => {
+    const first = await api.search({ page: 1, page_size: 100 })
+    const pageCount = Math.ceil(first.total / 100)
+    const remaining = pageCount > 1 ? await Promise.all(Array.from({ length: pageCount - 1 }, (_, index) => api.search({ page: index + 2, page_size: 100 }))) : []
+    return { items: [first, ...remaining].flatMap((page) => page.items), total: first.total }
+  })
   return <>
-    <header className="page-heading"><span className="page-eyebrow">Temporal linking</span><h1>Regulatory-history timeline</h1><p>Review regulator-published events in chronological context while retaining the linked drug, manufacturer, batch and source.</p></header>
-    <div className="filter-bar"><label>Entity<select value={entity} onChange={(e) => setEntity(e.target.value)}><option>All indexed entities</option><option>Pantoprazole Gastro-Resistant Tablets IP</option><option>Gidsha Pharmaceuticals</option></select></label><div className="filter-count">{filtered.length} linked events</div></div>
-    <Timeline records={filtered} navigate={navigate}/>
+    <header className="page-heading"><span className="page-eyebrow">Regulatory chronology</span><h1>Regulatory-history timeline</h1><p>Review the indexed regulatory records in publication order while retaining product, manufacturer, batch and official-source evidence.</p></header>
+    <DataState loading={state.loading} error={state.error} empty={!state.data?.total}>{state.data && <><div className="filter-bar"><div className="filter-count">{state.data.total} source-backed records</div></div><Timeline records={state.data.items} navigate={navigate}/></>}</DataState>
   </>
 }

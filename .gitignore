@@ -5,6 +5,9 @@
 venv/
 __pycache__/
 *.pyc
+.pytest-tmp/
+.pytest-runs/
+.pytest_cache/
 node_modules/
 frontend/dist/
 data/raw/*
@@ -14,3 +17,5 @@ data/interim/*
 *.pdf
 *.db
 .sites-runtime/
+tmp/
+releases/
