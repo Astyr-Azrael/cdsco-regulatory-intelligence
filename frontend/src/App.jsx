@@ -14,7 +14,6 @@ import { SourcesPage } from './pages/SourcesPage.jsx'
 const navigation = [
   { section: 'Overview' },
   { path: '/home', label: 'Overview', icon: 'home' },
-  { path: '/search', label: 'Search', icon: 'search' },
   { section: 'Regulatory records' },
   { path: '/alerts', label: 'Records', icon: 'alert' },
   { path: '/timeline', label: 'Timeline', icon: 'timeline' },
